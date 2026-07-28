@@ -1075,6 +1075,11 @@ textarea.form-control:focus {
   .hero-title-full {
     font-size: 2.5rem;
   }
+  .btn {
+    padding: 0.65rem 1.2rem;
+    font-size: 0.82rem;
+    gap: 0.5rem;
+  }
   .hero-description-full {
     font-size: 1.1rem;
   }

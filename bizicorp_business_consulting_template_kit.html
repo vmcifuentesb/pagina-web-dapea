@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiziCorp | Business Consulting - Home Version Two Replica</title>
+    
+    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        biziblue: {
+                            DEFAULT: '#1E50A2',
+                            dark: '#0B132B',
+                            light: '#EBF2FE',
+                            hover: '#153D80',
+                            bright: '#2563EB'
+                        },
+                        bizidark: '#09101D',
+                        bizigray: '#F4F7FC',
+                        bizineutral: '#64748B'
+                    },
+                    boxShadow: {
+                        'bizicard': '0 10px 30px -5px rgba(11, 19, 43, 0.08)',
+                        'bizihover': '0 20px 40px -10px rgba(30, 80, 162, 0.18)',
+                        'floatcard': '0 15px 35px 0 rgba(0, 0, 0, 0.1)'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .hero-overlay {
+            background: linear-gradient(180deg, rgba(11, 19, 43, 0.85) 0%, rgba(11, 19, 43, 0.92) 100%);
+        }
+        .dark-banner-bg {
+            background: linear-gradient(135deg, rgba(11, 19, 43, 0.95) 0%, rgba(15, 23, 42, 0.98) 100%), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80') center/cover no-repeat;
+        }
+        .pulse-ring {
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.92); opacity: 0.8; }
+            50% { transform: scale(1.08); opacity: 1; }
+            100% { transform: scale(0.92); opacity: 0.8; }
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-800 bg-white antialiased overflow-x-hidden">
+
+    <!-- TOP BAR -->
+    <div class="bg-biziblue-dark text-slate-300 text-xs py-2.5 px-4 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-6">
+                <span class="flex items-center gap-2 hover:text-white transition">
+                    <i class="fa-solid fa-envelope text-biziblue-bright"></i> info@bizicorp.com
+                </span>
+                <span class="flex items-center gap-2 hover:text-white transition hidden sm:flex">
+                    <i class="fa-solid fa-phone text-biziblue-bright"></i> +1 (800) 123-4567
+                </span>
+                <span class="flex items-center gap-2 hover:text-white transition hidden md:flex">
+                    <i class="fa-solid fa-location-dot text-biziblue-bright"></i> 72 Wall Street, NY 10005
+                </span>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-3 text-slate-400">
+                    <a href="#" class="hover:text-white transition"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="hover:text-white transition"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="hover:text-white transition"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#" class="hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN NAVBAR -->
+    <header class="sticky top-0 bg-white z-50 shadow-md border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
+            
+            <!-- LOGO -->
+            <a href="#" class="flex items-center gap-2.5">
+                <div class="w-10 h-10 rounded-lg bg-biziblue flex items-center justify-center text-white text-xl font-bold shadow-md shadow-biziblue/30">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <span class="text-2xl font-black text-biziblue-dark tracking-tight">
+                    Bizi<span class="text-biziblue">Corp</span>
+                </span>
+            </a>
+
+            <!-- DESKTOP MENU -->
+            <nav class="hidden lg:flex items-center gap-8 text-sm font-semibold text-slate-700">
+                <a href="#hero" class="text-biziblue font-bold hover:text-biziblue transition">Home</a>
+                <a href="#about" class="hover:text-biziblue transition">About Us</a>
+                <a href="#services" class="hover:text-biziblue transition">Services</a>
+                <a href="#projects" class="hover:text-biziblue transition">Case Studies</a>
+                <a href="#whyus" class="hover:text-biziblue transition">Pages</a>
+                <a href="#blog" class="hover:text-biziblue transition">Blog</a>
+                <a href="#contact" class="hover:text-biziblue transition">Contact</a>
+            </nav>
+
+            <!-- RIGHT CTA & SEARCH -->
+            <div class="hidden sm:flex items-center gap-4">
+                <button onclick="toggleModal('searchModal')" class="text-slate-600 hover:text-biziblue text-lg p-2 transition">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button onclick="toggleModal('quoteModal')" class="bg-biziblue hover:bg-biziblue-hover text-white font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-md shadow-lg shadow-biziblue/20 transition duration-300">
+                    Get A Quote
+                </button>
+            </div>
+
+            <!-- MOBILE HAMBURGER -->
+            <button onclick="toggleMobileMenu()" class="lg:hidden text-slate-800 text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- MOBILE MENU DRAWER -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-slate-200 px-6 py-6 space-y-4">
+            <a href="#hero" onclick="toggleMobileMenu()" class="block text-biziblue font-bold">Home</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="block text-slate-700 font-medium hover:text-biziblue">About Us</a>
+            <a href="#services" onclick="toggleMobileMenu()" class="block text-slate-700 font-medium hover:text-biziblue">Services</a>
+            <a href="#projects" onclick="toggleMobileMenu()" class="block text-slate-700 font-medium hover:text-biziblue">Case Studies</a>
+            <a href="#whyus" onclick="toggleMobileMenu()" class="block text-slate-700 font-medium hover:text-biziblue">Pages</a>
+            <a href="#blog" onclick="toggleMobileMenu()" class="block text-slate-700 font-medium hover:text-biziblue">Blog</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block text-slate-700 font-medium hover:text-biziblue">Contact</a>
+            <button onclick="toggleMobileMenu(); toggleModal('quoteModal')" class="w-full bg-biziblue text-white font-bold py-3 rounded-md text-xs uppercase tracking-wider">
+                Get A Quote
+            </button>
+        </div>
+    </header>
+
+    <!-- SECTION 1: HERO BANNER -->
+    <section id="hero" class="relative bg-cover bg-center text-white py-28 lg:py-40" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=80');">
+        <div class="absolute inset-0 hero-overlay"></div>
+        
+        <div class="relative max-w-5xl mx-auto px-4 text-center z-10">
+            <span class="inline-block text-biziblue-bright font-bold text-xs uppercase tracking-widest bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-4">
+                Build Your Business Today
+            </span>
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6 max-w-4xl mx-auto">
+                Experience You Can Trust, Service You Can Count On.
+            </h1>
+            <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto mb-10 leading-relaxed">
+                We provide end-to-end consulting, financial strategies, and organizational intelligence to help ambitious companies thrive in changing global markets.
+            </p>
+            <div class="flex flex-wrap justify-center items-center gap-4">
+                <a href="#about" class="bg-biziblue hover:bg-biziblue-hover text-white font-bold px-8 py-3.5 rounded-md text-xs uppercase tracking-wider shadow-xl transition transform hover:-translate-y-0.5">
+                    About Us
+                </a>
+                <a href="#services" class="bg-transparent hover:bg-white/10 text-white border border-white/40 font-bold px-8 py-3.5 rounded-md text-xs uppercase tracking-wider transition">
+                    Our Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- OVERLAPPING 3-COLUMN FEATURE CARDS -->
+    <section class="relative z-20 max-w-6xl mx-auto px-4 -mt-16 sm:-mt-20">
+        <div class="grid grid-cols-1 md:grid-cols-3 bg-white rounded-xl shadow-floatcard border border-slate-100 overflow-hidden divide-y md:divide-y-0 md:divide-x divide-slate-100">
+            
+            <div class="p-8 hover:bg-slate-50 transition duration-300 group">
+                <div class="w-12 h-12 rounded-lg bg-biziblue-light text-biziblue flex items-center justify-center text-2xl mb-4 group-hover:bg-biziblue group-hover:text-white transition duration-300">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <h3 class="text-lg font-bold text-biziblue-dark mb-2">Business Growth & Strategy</h3>
+                <p class="text-slate-500 text-xs leading-relaxed">
+                    Proven frameworks designed to accelerate operational scale and increase profit margins effectively.
+                </p>
+            </div>
+
+            <div class="p-8 hover:bg-slate-50 transition duration-300 group">
+                <div class="w-12 h-12 rounded-lg bg-biziblue-light text-biziblue flex items-center justify-center text-2xl mb-4 group-hover:bg-biziblue group-hover:text-white transition duration-300">
+                    <i class="fa-solid fa-chart-pie"></i>
+                </div>
+                <h3 class="text-lg font-bold text-biziblue-dark mb-2">Financial Projection & Analysis</h3>
+                <p class="text-slate-500 text-xs leading-relaxed">
+                    Data-driven financial forecasts, risk evaluation, and capital allocation models for executive teams.
+                </p>
+            </div>
+
+            <div class="p-8 hover:bg-slate-50 transition duration-300 group">
+                <div class="w-12 h-12 rounded-lg bg-biziblue-light text-biziblue flex items-center justify-center text-2xl mb-4 group-hover:bg-biziblue group-hover:text-white transition duration-300">
+                    <i class="fa-solid fa-user-gear"></i>
+                </div>
+                <h3 class="text-lg font-bold text-biziblue-dark mb-2">Consulting Business Solutions</h3>
+                <p class="text-slate-500 text-xs leading-relaxed">
+                    Tailored advisory services empowering leadership to solve complex market challenges seamlessly.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 2: WE BELIEVE WE WILL BE SUCCESSFUL IF OUR CLIENTS ARE SUCCESSFUL -->
+    <section id="services" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            
+            <div class="grid lg:grid-cols-12 gap-8 items-end mb-16">
+                <div class="lg:col-span-7">
+                    <h2 class="text-3xl sm:text-4xl font-black text-biziblue-dark leading-tight">
+                        We Believe We Will Be Successful If Our Clients Are Successful.
+                    </h2>
+                </div>
+                <div class="lg:col-span-5">
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Our client-centric philosophy drives every strategic recommendation we make. We partner closely with corporate leaders to turn visionary goals into tangible market advantages.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 4 IMAGE CARDS GRID -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                
+                <div class="group bg-white rounded-xl overflow-hidden shadow-bizicard hover:shadow-bizihover border border-slate-100 transition duration-300">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&q=80" alt="Tactical Planning" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-5 text-center">
+                        <h3 class="font-bold text-biziblue-dark text-base group-hover:text-biziblue transition">Tactical Planning</h3>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-xl overflow-hidden shadow-bizicard hover:shadow-bizihover border border-slate-100 transition duration-300">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=600&q=80" alt="Capital Investment" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-5 text-center">
+                        <h3 class="font-bold text-biziblue-dark text-base group-hover:text-biziblue transition">Capital Investment</h3>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-xl overflow-hidden shadow-bizicard hover:shadow-bizihover border border-slate-100 transition duration-300">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80" alt="Wealth Planning" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-5 text-center">
+                        <h3 class="font-bold text-biziblue-dark text-base group-hover:text-biziblue transition">Wealth Planning</h3>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-xl overflow-hidden shadow-bizicard hover:shadow-bizihover border border-slate-100 transition duration-300">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=600&q=80" alt="Investment Advice" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-5 text-center">
+                        <h3 class="font-bold text-biziblue-dark text-base group-hover:text-biziblue transition">Investment Advice</h3>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="text-center">
+                <a href="#projects" class="inline-block bg-biziblue hover:bg-biziblue-hover text-white font-bold px-8 py-3.5 rounded-md text-xs uppercase tracking-wider shadow-lg transition">
+                    Discover More
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 3: DARK BLUE BANNER - BEST REASON FOR CHOOSE OUR SERVICE -->
+    <section id="whyus" class="py-24 dark-banner-bg text-white relative">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+            
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+                    Best Reason For Choose Our Service
+                </h2>
+                <div class="w-16 h-1 bg-biziblue-bright mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <div class="text-center group">
+                    <div class="w-20 h-20 rounded-full border-2 border-white/20 bg-white/5 flex items-center justify-center text-2xl mx-auto mb-6 group-hover:border-biziblue-bright group-hover:bg-biziblue-bright transition duration-300 shadow-lg">
+                        <i class="fa-solid fa-user-tie text-white"></i>
+                    </div>
+                    <h3 class="text-base font-bold mb-2">Guidance From Field Experts</h3>
+                    <p class="text-slate-300 text-xs leading-relaxed">
+                        Direct support from seasoned corporate strategists with decades of proven execution experience.
+                    </p>
+                </div>
+
+                <div class="text-center group">
+                    <div class="w-20 h-20 rounded-full border-2 border-white/20 bg-white/5 flex items-center justify-center text-2xl mx-auto mb-6 group-hover:border-biziblue-bright group-hover:bg-biziblue-bright transition duration-300 shadow-lg">
+                        <i class="fa-solid fa-graduation-cap text-white"></i>
+                    </div>
+                    <h3 class="text-base font-bold mb-2">Advancement & Staff Education</h3>
+                    <p class="text-slate-300 text-xs leading-relaxed">
+                        Executive workshops and upskilling programs to build resilient, high-performing corporate teams.
+                    </p>
+                </div>
+
+                <div class="text-center group">
+                    <div class="w-20 h-20 rounded-full border-2 border-white/20 bg-white/5 flex items-center justify-center text-2xl mx-auto mb-6 group-hover:border-biziblue-bright group-hover:bg-biziblue-bright transition duration-300 shadow-lg">
+                        <i class="fa-solid fa-magnifying-glass-chart text-white"></i>
+                    </div>
+                    <h3 class="text-base font-bold mb-2">In-Depth Market Research</h3>
+                    <p class="text-slate-300 text-xs leading-relaxed">
+                        Comprehensive competitor benchmarks, consumer insights, and emerging industry trend analysis.
+                    </p>
+                </div>
+
+                <div class="text-center group">
+                    <div class="w-20 h-20 rounded-full border-2 border-white/20 bg-white/5 flex items-center justify-center text-2xl mx-auto mb-6 group-hover:border-biziblue-bright group-hover:bg-biziblue-bright transition duration-300 shadow-lg">
+                        <i class="fa-solid fa-shield-halved text-white"></i>
+                    </div>
+                    <h3 class="text-base font-bold mb-2">Guaranteed Business Solution</h3>
+                    <p class="text-slate-300 text-xs leading-relaxed">
+                        Risk-managed strategy blueprints designed to deliver measurable return on investment.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: BRAINSTORMING INTERACTIVE IDEAS ON BUSINESS TRANSFORMATION -->
+    <section class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            
+            <div class="grid lg:grid-cols-12 gap-8 items-end mb-16">
+                <div class="lg:col-span-7">
+                    <h2 class="text-3xl sm:text-4xl font-black text-biziblue-dark leading-tight">
+                        Brainstorming Interactive Ideas On Business Transformation
+                    </h2>
+                </div>
+                <div class="lg:col-span-5">
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        We blend creative thinking with rigorous data analytical modeling to unlock sustainable digital and operational transformations for enterprise clients worldwide.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 3 CASE CARDS -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <div class="bg-white rounded-xl overflow-hidden border border-slate-200/80 shadow-bizicard hover:shadow-bizihover transition duration-300 group flex flex-col justify-between">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80" alt="Learning Strategy" class="w-full h-52 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-biziblue-dark mb-3 group-hover:text-biziblue transition">
+                                Valuable learning strategy for businesses
+                            </h3>
+                            <p class="text-slate-500 text-xs leading-relaxed mb-4">
+                                Strategic frameworks to implement agile corporate training and knowledge retention across global branches.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-0">
+                        <a href="#" class="text-biziblue font-bold text-xs uppercase tracking-wider inline-flex items-center gap-2 group-hover:gap-3 transition-all">
+                            <span>Read More</span> <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl overflow-hidden border border-slate-200/80 shadow-bizicard hover:shadow-bizihover transition duration-300 group flex flex-col justify-between">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&q=80" alt="Customer Leadership" class="w-full h-52 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-biziblue-dark mb-3 group-hover:text-biziblue transition">
+                                Help teams deliver business goals and customer leadership
+                            </h3>
+                            <p class="text-slate-500 text-xs leading-relaxed mb-4">
+                                Structuring high-impact executive leadership workflows that put customer satisfaction at the operational core.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-0">
+                        <a href="#" class="text-biziblue font-bold text-xs uppercase tracking-wider inline-flex items-center gap-2 group-hover:gap-3 transition-all">
+                            <span>Read More</span> <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl overflow-hidden border border-slate-200/80 shadow-bizicard hover:shadow-bizihover transition duration-300 group flex flex-col justify-between">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80" alt="Creativity for solving problems" class="w-full h-52 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-biziblue-dark mb-3 group-hover:text-biziblue transition">
+                                Creativity for solving problems in an ecosystem environment
+                            </h3>
+                            <p class="text-slate-500 text-xs leading-relaxed mb-4">
+                                Cultivating open innovation labs that drive product iteration and market leadership in competitive sectors.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-0">
+                        <a href="#" class="text-biziblue font-bold text-xs uppercase tracking-wider inline-flex items-center gap-2 group-hover:gap-3 transition-all">
+                            <span>Read More</span> <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: WE PREPARE AN EFFECTIVE BUSINESS STRATEGY FOR COMPANIES -->
+    <section id="about" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- LEFT IMAGE WITH PLAY BUTTON -->
+                <div class="lg:col-span-6 relative">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl group border border-slate-100">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80" alt="Effective Strategy Team" class="w-full h-[450px] object-cover group-hover:scale-105 transition duration-700">
+                        
+                        <!-- PLAY BUTTON MODAL TRIGGER -->
+                        <button onclick="playVideoModal()" class="absolute inset-0 m-auto w-20 h-20 rounded-full bg-biziblue text-white flex items-center justify-center text-2xl shadow-2xl hover:scale-110 transition duration-300 pulse-ring">
+                            <i class="fa-solid fa-play ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- RIGHT STRATEGY CONTENT -->
+                <div class="lg:col-span-6 space-y-6">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-biziblue-dark leading-tight">
+                        We Prepare An Effective Business Strategy For Companies
+                    </h2>
+
+                    <!-- BULLET 1 -->
+                    <div class="flex items-start gap-4 pt-2">
+                        <div class="w-12 h-12 rounded-lg bg-biziblue-light text-biziblue flex-shrink-0 flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-chess-knight"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-base font-bold text-biziblue-dark mb-1">Innovative Flexible Growth & Strategy</h3>
+                            <p class="text-slate-500 text-xs leading-relaxed">
+                                Scalable blueprints tailored to align corporate culture, technology stack, and capital distribution.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- BULLET 2 -->
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-lg bg-biziblue-light text-biziblue flex-shrink-0 flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-handshake-angle"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-base font-bold text-biziblue-dark mb-1">Business Advisory Counsel</h3>
+                            <p class="text-slate-500 text-xs leading-relaxed">
+                                Ongoing executive guidance to navigate regulatory governance, mergers, and financial restructuring.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- COUNTER METRICS -->
+                    <div class="pt-6 border-t border-slate-100 grid grid-cols-2 gap-6">
+                        <div>
+                            <span class="block text-3xl font-black text-biziblue">184+</span>
+                            <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Happy Clients</span>
+                        </div>
+                        <div>
+                            <span class="block text-3xl font-black text-biziblue">99%</span>
+                            <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Customer Satisfaction</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: WHAT OUR CLIENTS SAY ABOUT BIZICORP SERVICE (TESTIMONIALS) -->
+    <section class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-black text-biziblue-dark">
+                    What Our Clients Say About BiziCorp Service
+                </h2>
+                <div class="w-16 h-1 bg-biziblue mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- TESTIMONIAL 1 -->
+                <div class="bg-white p-8 rounded-xl border border-slate-200/80 shadow-bizicard relative flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&q=80" alt="Client 1" class="w-12 h-12 rounded-full object-cover">
+                                <div>
+                                    <h3 class="font-bold text-biziblue-dark text-sm">Johnathan Ross</h3>
+                                    <span class="text-xs text-slate-400">CEO, Apex Enterprise</span>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-quote-right text-3xl text-biziblue-light"></i>
+                        </div>
+                        <p class="text-slate-600 text-xs leading-relaxed italic mb-4">
+                            "BiziCorp's strategic restructuring doubled our operational throughput within six months. Their analytical clarity is unmatched in the consulting sector."
+                        </p>
+                    </div>
+                    <div class="text-amber-400 text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+
+                <!-- TESTIMONIAL 2 -->
+                <div class="bg-white p-8 rounded-xl border border-slate-200/80 shadow-bizicard relative flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&q=80" alt="Client 2" class="w-12 h-12 rounded-full object-cover">
+                                <div>
+                                    <h3 class="font-bold text-biziblue-dark text-sm">Edward Bennet</h3>
+                                    <span class="text-xs text-slate-400">Financial Director, Horizon</span>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-quote-right text-3xl text-biziblue-light"></i>
+                        </div>
+                        <p class="text-slate-600 text-xs leading-relaxed italic mb-4">
+                            "The depth of financial projection and market analysis provided by BiziCorp gave us complete confidence during our Series B expansion."
+                        </p>
+                    </div>
+                    <div class="text-amber-400 text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+
+                <!-- TESTIMONIAL 3 -->
+                <div class="bg-white p-8 rounded-xl border border-slate-200/80 shadow-bizicard relative flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=120&q=80" alt="Client 3" class="w-12 h-12 rounded-full object-cover">
+                                <div>
+                                    <h3 class="font-bold text-biziblue-dark text-sm">Sarah Jenkins</h3>
+                                    <span class="text-xs text-slate-400">VP Operations, Nexa Global</span>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-quote-right text-3xl text-biziblue-light"></i>
+                        </div>
+                        <p class="text-slate-600 text-xs leading-relaxed italic mb-4">
+                            "Incredible team of advisors. They delivered an actionable digital roadmap that reduced overhead costs by 35% across our international offices."
+                        </p>
+                    </div>
+                    <div class="text-amber-400 text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: NEW COMPANY MANAGEMENT ETHICS / IDEAS & ACCORDION -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- LEFT ACCORDION -->
+                <div class="lg:col-span-6 space-y-6">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-biziblue-dark leading-tight">
+                        New Company Management Ethics / Ideas
+                    </h2>
+                    <p class="text-slate-500 text-xs leading-relaxed">
+                        Modern business requires modern executive ethics. We help organizations establish transparent, resilient management methodologies.
+                    </p>
+
+                    <!-- ACCORDION CONTAINER -->
+                    <div class="space-y-3 pt-2">
+                        
+                        <div class="border border-slate-200 rounded-lg overflow-hidden">
+                            <button onclick="toggleAccordion('acc1')" class="w-full bg-biziblue text-white p-4 font-bold text-xs uppercase tracking-wider flex items-center justify-between text-left">
+                                <span>1. An Offensive And Defensive Approach</span>
+                                <i id="icon-acc1" class="fa-solid fa-chevron-up"></i>
+                            </button>
+                            <div id="acc1" class="p-4 bg-slate-50 text-slate-600 text-xs leading-relaxed border-t border-slate-200">
+                                Balancing bold market penetration strategies with robust risk mitigation and financial safety reserves to safeguard corporate assets.
+                            </div>
+                        </div>
+
+                        <div class="border border-slate-200 rounded-lg overflow-hidden">
+                            <button onclick="toggleAccordion('acc2')" class="w-full bg-slate-50 text-biziblue-dark hover:bg-slate-100 p-4 font-bold text-xs uppercase tracking-wider flex items-center justify-between text-left transition">
+                                <span>2. Innovation And Automation</span>
+                                <i id="icon-acc2" class="fa-solid fa-chevron-down"></i>
+                            </button>
+                            <div id="acc2" class="hidden p-4 bg-slate-50 text-slate-600 text-xs leading-relaxed border-t border-slate-200">
+                                Integrating enterprise AI tools and automated workflows to reduce operational friction and accelerate time-to-market.
+                            </div>
+                        </div>
+
+                        <div class="border border-slate-200 rounded-lg overflow-hidden">
+                            <button onclick="toggleAccordion('acc3')" class="w-full bg-slate-50 text-biziblue-dark hover:bg-slate-100 p-4 font-bold text-xs uppercase tracking-wider flex items-center justify-between text-left transition">
+                                <span>3. Analytical Minded Experts</span>
+                                <i id="icon-acc3" class="fa-solid fa-chevron-down"></i>
+                            </button>
+                            <div id="acc3" class="hidden p-4 bg-slate-50 text-slate-600 text-xs leading-relaxed border-t border-slate-200">
+                                Deploying specialized data scientists and financial analysts to eliminate guesswork from executive decision-making.
+                            </div>
+                        </div>
+
+                        <div class="border border-slate-200 rounded-lg overflow-hidden">
+                            <button onclick="toggleAccordion('acc4')" class="w-full bg-slate-50 text-biziblue-dark hover:bg-slate-100 p-4 font-bold text-xs uppercase tracking-wider flex items-center justify-between text-left transition">
+                                <span>4. Structural Management</span>
+                                <i id="icon-acc4" class="fa-solid fa-chevron-down"></i>
+                            </button>
+                            <div id="acc4" class="hidden p-4 bg-slate-50 text-slate-600 text-xs leading-relaxed border-t border-slate-200">
+                                Creating clear accountability frameworks and cross-departmental communication channels for maximum team output.
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- RIGHT IMAGE WITH FLOATING STAT BADGE -->
+                <div class="lg:col-span-6 relative">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-100">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80" alt="Management Meeting" class="w-full h-[420px] object-cover">
+                        
+                        <!-- FLOATING BADGE -->
+                        <div class="absolute bottom-6 right-6 bg-white p-5 rounded-xl shadow-2xl border border-slate-100 flex items-center gap-4 max-w-xs">
+                            <div class="w-12 h-12 rounded-lg bg-biziblue-light text-biziblue flex items-center justify-center text-2xl font-bold flex-shrink-0">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+                            <div>
+                                <span class="text-2xl font-black text-biziblue-dark block leading-none">93%</span>
+                                <span class="text-xs text-slate-500 font-semibold">Business Growth Strategy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: PARTNER BRAND LOGOS CAROUSEL / ROW -->
+    <section class="py-12 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="flex flex-wrap items-center justify-around gap-8 opacity-60 hover:opacity-100 transition duration-300">
+                <span class="text-2xl font-black tracking-widest text-slate-700 uppercase flex items-center gap-2"><i class="fa-solid fa-globe"></i> BRAND</span>
+                <span class="text-2xl font-black tracking-widest text-slate-700 uppercase flex items-center gap-2"><i class="fa-solid fa-microchip"></i> MS</span>
+                <span class="text-2xl font-black tracking-widest text-slate-700 uppercase flex items-center gap-2"><i class="fa-solid fa-layer-group"></i> LOGO3</span>
+                <span class="text-2xl font-black tracking-widest text-slate-700 uppercase flex items-center gap-2"><i class="fa-solid fa-cubes"></i> LOGO4</span>
+                <span class="text-2xl font-black tracking-widest text-slate-700 uppercase flex items-center gap-2"><i class="fa-solid fa-bolt"></i> LEAD</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 9: LATEST NEWS / BLOG -->
+    <section id="blog" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <!-- NEWS ITEM 1 -->
+                <div class="bg-slate-50 rounded-xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-bizicard transition duration-300 flex flex-col sm:flex-row">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=500&q=80" alt="News 1" class="sm:w-1/2 h-56 sm:h-auto object-cover">
+                    <div class="p-6 sm:w-1/2 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-biziblue block mb-2">Strategy</span>
+                            <h3 class="font-bold text-biziblue-dark text-base mb-2 hover:text-biziblue transition">
+                                Understanding The Principles of Business Strategy
+                            </h3>
+                            <p class="text-slate-500 text-xs leading-relaxed mb-4">
+                                A comprehensive breakdown of modern corporate planning and execution frameworks.
+                            </p>
+                        </div>
+                        <a href="#" class="text-biziblue font-bold text-xs uppercase tracking-wider inline-flex items-center gap-1">
+                            Read More <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- NEWS ITEM 2 -->
+                <div class="bg-slate-50 rounded-xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-bizicard transition duration-300 flex flex-col sm:flex-row">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=500&q=80" alt="News 2" class="sm:w-1/2 h-56 sm:h-auto object-cover">
+                    <div class="p-6 sm:w-1/2 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-biziblue block mb-2">Leadership</span>
+                            <h3 class="font-bold text-biziblue-dark text-base mb-2 hover:text-biziblue transition">
+                                Join Our Fast Growing Business Strategy Team Now
+                            </h3>
+                            <p class="text-slate-500 text-xs leading-relaxed mb-4">
+                                Explore how top advisors drive client success across international financial centers.
+                            </p>
+                        </div>
+                        <a href="#" class="text-biziblue font-bold text-xs uppercase tracking-wider inline-flex items-center gap-1">
+                            Read More <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 10: FOOTER -->
+    <footer id="contact" class="bg-biziblue-dark text-slate-400 pt-16 pb-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-slate-800 text-xs">
+                
+                <!-- COL 1: LOGO & BIO -->
+                <div class="space-y-4">
+                    <a href="#" class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded bg-biziblue flex items-center justify-center text-white font-bold text-base">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <span class="text-2xl font-black text-white">Bizi<span class="text-biziblue-bright">Corp</span></span>
+                    </a>
+                    <p class="text-slate-400 leading-relaxed">
+                        BiziCorp is a global business management and financial advisory consultancy helping leaders build competitive market positions.
+                    </p>
+                    <div class="flex items-center gap-3 text-slate-300 pt-2">
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-biziblue hover:border-biziblue transition"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-biziblue hover:border-biziblue transition"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-biziblue hover:border-biziblue transition"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- COL 2: USEFUL LINKS -->
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-4 uppercase tracking-wider">Useful Links</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="#hero" class="hover:text-white transition">Home</a></li>
+                        <li><a href="#about" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="#services" class="hover:text-white transition">Services</a></li>
+                        <li><a href="#projects" class="hover:text-white transition">Case Studies</a></li>
+                        <li><a href="#blog" class="hover:text-white transition">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- COL 3: QUICK SERVICES -->
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-4 uppercase tracking-wider">Quick Services</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="#services" class="hover:text-white transition">Tactical Planning</a></li>
+                        <li><a href="#services" class="hover:text-white transition">Capital Investment</a></li>
+                        <li><a href="#services" class="hover:text-white transition">Wealth Planning</a></li>
+                        <li><a href="#services" class="hover:text-white transition">Investment Advice</a></li>
+                        <li><a href="#services" class="hover:text-white transition">Business Advisory</a></li>
+                    </ul>
+                </div>
+
+                <!-- COL 4: NEWSLETTER -->
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-4 uppercase tracking-wider">Subscribe Newsletter</h4>
+                    <p class="mb-4 text-slate-400">Receive strategic market analysis and news directly in your inbox.</p>
+                    <form onsubmit="handleSubscribe(event)" class="space-y-2">
+                        <input type="email" required placeholder="Your email address" class="w-full bg-slate-900 border border-slate-800 rounded px-4 py-2.5 text-white text-xs focus:outline-none focus:border-biziblue">
+                        <button type="submit" class="w-full bg-biziblue hover:bg-biziblue-hover text-white font-bold py-2.5 rounded uppercase tracking-wider transition">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- MANDATORY FOOTER ATTRIBUTION -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+                <p>&copy; 2026 BiziCorp. All Rights Reserved.</p>
+                <p class="text-slate-400 font-medium">
+                    Designed by <a href="https://promptendweb.com/" target="_blank" rel="noopener noreferrer" class="text-biziblue-bright font-bold hover:underline">Promptend</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODALS -->
+    <!-- GET A QUOTE MODAL -->
+    <div id="quoteModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white border border-slate-200 w-full max-w-md rounded-xl p-6 text-slate-900 shadow-2xl relative">
+            <button onclick="toggleModal('quoteModal')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-800 text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="text-xl font-extrabold text-biziblue-dark mb-2">Request A Quote</h3>
+            <p class="text-xs text-slate-500 mb-4">Fill out the form below to receive a customized consultation blueprint.</p>
+            <form onsubmit="handleFormSubmit(event)" class="space-y-3 text-xs">
+                <input type="text" required placeholder="Full Name *" class="w-full bg-slate-50 border border-slate-200 rounded px-4 py-2.5 focus:outline-none focus:border-biziblue">
+                <input type="email" required placeholder="Corporate Email *" class="w-full bg-slate-50 border border-slate-200 rounded px-4 py-2.5 focus:outline-none focus:border-biziblue">
+                <input type="text" placeholder="Company Name" class="w-full bg-slate-50 border border-slate-200 rounded px-4 py-2.5 focus:outline-none focus:border-biziblue">
+                <textarea rows="3" placeholder="Project details..." class="w-full bg-slate-50 border border-slate-200 rounded px-4 py-2.5 focus:outline-none focus:border-biziblue"></textarea>
+                <button type="submit" class="w-full bg-biziblue text-white font-bold py-3 rounded uppercase tracking-wider transition hover:bg-biziblue-hover">
+                    Submit Request
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- SEARCH MODAL -->
+    <div id="searchModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white border border-slate-200 w-full max-w-lg rounded-xl p-6 relative">
+            <button onclick="toggleModal('searchModal')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-800 text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="text-lg font-bold text-biziblue-dark mb-4">Search BiziCorp</h3>
+            <div class="relative">
+                <input type="text" placeholder="Type search keywords..." class="w-full bg-slate-50 border border-slate-200 rounded px-4 py-3 pr-10 text-xs focus:outline-none focus:border-biziblue">
+                <button class="absolute right-3 top-3 text-slate-400 hover:text-biziblue">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- INTERACTIVE JAVASCRIPT -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        function toggleModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.toggle('hidden');
+        }
+
+        function toggleAccordion(id) {
+            const accordions = ['acc1', 'acc2', 'acc3', 'acc4'];
+            accordions.forEach(accId => {
+                const content = document.getElementById(accId);
+                const icon = document.getElementById('icon-' + accId);
+                const btn = content.previousElementSibling;
+
+                if (accId === id) {
+                    const isHidden = content.classList.contains('hidden');
+                    if (isHidden) {
+                        content.classList.remove('hidden');
+                        btn.className = "w-full bg-biziblue text-white p-4 font-bold text-xs uppercase tracking-wider flex items-center justify-between text-left";
+                        icon.className = "fa-solid fa-chevron-up";
+                    } else {
+                        content.classList.add('hidden');
+                        btn.className = "w-full bg-slate-50 text-biziblue-dark hover:bg-slate-100 p-4 font-bold text-xs uppercase tracking-wider flex items-center justify-between text-left transition";
+                        icon.className = "fa-solid fa-chevron-down";
+                    }
+                } else {
+                    content.classList.add('hidden');
+                    btn.className = "w-full bg-slate-50 text-biziblue-dark hover:bg-slate-100 p-4 font-bold text-xs uppercase tracking-wider flex items-center justify-between text-left transition";
+                    if(icon) icon.className = "fa-solid fa-chevron-down";
+                }
+            });
+        }
+
+        function playVideoModal() {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-slate-950/90 z-50 flex items-center justify-center p-4';
+            modal.innerHTML = `
+                <div class="relative w-full max-w-3xl bg-black rounded-xl overflow-hidden shadow-2xl">
+                    <button onclick="this.parentElement.parentElement.remove()" class="absolute top-3 right-3 text-white text-2xl z-10 hover:text-biziblue">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <div class="aspect-video w-full">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" title="BiziCorp Overview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            alert('Thank you! Your quote request has been received.');
+            toggleModal('quoteModal');
+            e.target.reset();
+        }
+
+        function handleSubscribe(e) {
+            e.preventDefault();
+            alert('Thank you for subscribing to BiziCorp insights!');
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>

@@ -329,7 +329,7 @@ h1, h2, h3, h4, h5, h6 {
    ========================================================================== */
 .hero-fullwidth {
   position: relative;
-  min-height: 100vh;
+  min-height: calc(100vh - 135px);
   padding: 6rem 0 7rem 0;
   background: linear-gradient(135deg, rgba(8, 19, 32, 0.6) 0%, rgba(13, 33, 58, 0.7) 100%), 
               url('../brand/hero_background_full.jpg') no-repeat center center / cover;
@@ -1069,7 +1069,7 @@ textarea.form-control:focus {
     justify-content: center;
   }
   .hero-fullwidth {
-    min-height: 100vh;
+    min-height: calc(100vh - 115px);
     padding: 4rem 0 5rem 0;
   }
   .hero-title-full {

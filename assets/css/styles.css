@@ -1127,13 +1127,64 @@ textarea.form-control:focus {
   .mobile-toggle {
     display: block;
   }
+  
+  /* MEJORA UX: Tabs horizontales con scroll en móvil */
   .pillar-tabs-nav {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    margin-left: -1.25rem;
+    margin-right: -1.25rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    gap: 0.75rem;
   }
+  
+  /* Ocultar barra de scroll en navegadores webkit para un diseño más limpio */
+  .pillar-tabs-nav::-webkit-scrollbar {
+    display: none;
+  }
+  .pillar-tabs-nav {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
   .tab-btn {
-    width: 100%;
-    justify-content: center;
+    width: auto;
+    flex: 0 0 auto;
+    padding: 0.8rem 1.25rem;
+    font-size: 0.95rem;
+    scroll-snap-align: start;
+    justify-content: flex-start;
+    gap: 0.6rem;
   }
+  
+  .tab-btn .letter-badge {
+    width: 26px;
+    height: 26px;
+    font-size: 0.85rem;
+  }
+
+  /* MEJORA UX: Mostrar la caja visual primero en móvil para confirmar la acción */
+  .tab-content-panel.active {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2rem;
+    padding: 1.75rem 1.25rem;
+  }
+  
+  .pillar-visual-box {
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .pillar-detail-info h3 {
+    font-size: 1.7rem;
+  }
+
   .footer-bottom {
     flex-direction: column;
     text-align: center;
